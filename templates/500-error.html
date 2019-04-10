@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div class="col s4">
+  Грешка в ид-то или сесията ти свърши.
+</div>
+{% endblock %}
+
+{% block arrival_info %}
+<div class="col s4">
+  <h2>Въведи нов код.</h2>
+  <p>Работи само с код на спирка. А ако си добавил, знай че само 4 спирки може да имаш като любими. ;) </p> 
+  <h3><a href="{{ url_for('index') }}">Пробвай пак.</a></h3>
+</div>
+{% endblock %}

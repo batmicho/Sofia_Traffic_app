@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>St-Lite {% block title %}{% endblock %}</title>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+             <!-- Latest compiled and minified CSS from CND-->
+             <!-- Compiled and minified CSS -->
+             <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"> -->
+             <!--Local CSS-->
+              <link rel="stylesheet" href="{{ url_for('static', filename='materialize.min.css') }}">
+              <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+              <link rel="shortcut icon" href="{{ url_for('static', filename='bussfaviicon.png') }}">
+   </head>
+   <body class="blue lighten-1">
+   <div id="body-div" class="row blue lighten-1">
+   <!-- Head -->
+
+  <nav>
+    <div class="nav-wrapper blue darken-1">
+      <div class="left" id="logo" >
+        <a href="{{ url_for('index') }}" class="brand-logo"><img src="{{ url_for('static', filename='logo_full_bg.svg') }}"</a>
+      </div>
+      <ul class="right">
+        <li><a href="{{ url_for('topstops') }}" class="waves-effect waves-light btn">Добави</a></li>
+      </ul>
+    </div>
+  </nav>
+
+   <!-- User-Body-main -->
+  <div class="col s12 card-panel blue darken-1">
+      <h2>Виртуални Тъбла:</h2>
+      <div class="input-field">
+        <form id="stopid-form" autocomplete="off" action="/" method="POST">
+          <div class="autocomplete">
+              <input name="userStop_id" placeholder="код на спирка" id="myInput">
+          </div>
+          <input id="submit" type="submit" value="Дай!">
+        </form>
+      </div>
+      <p>Моментен топ 4:
+              {% for stop in usr_filtered_stops %}
+                <div class="chip black">
+                  <a id="{{stop}}" class="myfav" onclick="searchme(this.id)" >{{stop}}</a>
+                </div>
+             {% endfor %}
+      </p>
+  </div>
+
+  <!-- Result-header -->
+{% block header %}{% endblock %}
+<!-- Result-body -->
+{% block arrival_info %}{% endblock %}
+<!-- Add-Stopids -->
+{% block add_stopids %}{% endblock %}
+<!-- Footer -->
+
+  </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+<footer class="page-footer blue darken-1">
+  <div class="footer-copyright">
+    <div class="container">
+    © 2018 Copyright
+    <a class="grey-text text-lighten-4 right" href="mailto:securedsystems@protonmail.ch">By Michi Mane</a>
+    </div>
+  </div>
+</footer>
+
+</html>

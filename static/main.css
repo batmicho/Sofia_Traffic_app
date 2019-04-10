@@ -1,0 +1,103 @@
+ main {
+   flex: 1 0 auto;
+ }
+
+h2 {
+  color: white;
+}
+
+#body-div{
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+#title-1{
+  margin-left: 1%;
+}
+
+div a.myfav {
+  color: #db9833;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 992px){
+#logo a {
+  left:20%;
+}
+}
+
+#logo img{
+  position: relative;
+  height: 57px;
+}
+
+.add-ids span {
+  color:white!important;
+}
+
+[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):before {
+    border: 2px solid black;
+}
+
+[type="checkbox"]:checked+span:not(.lever):before {
+
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+/*For autocomplete imput:*/
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+div.favsbox {
+  padding: 2%;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+  height:20em;
+  overflow:scroll;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+      <!-- Result-body -->
+{% block title %} Info {{stop_id}} {% endblock %}
+
+{% block header %}
+<div class="col s4">
+  <p><b>Информация идващи</b></p>
+   <time>
+       <span>Изчислено в: </span> {{ calculated_arrival_at }}
+   </time>
+
+   <p>Име/Код спирка - {{ stop_name }} : {{stop_id}} </p>
+ </div>
+{% endblock %}
+
+    <!-- List-creation -->
+{% block arrival_info %}
+<div class="col s6">
+   <div class="line-arrivals">
+       <table style="width:100%">
+           <tr>
+               <td>Линия</td>
+               <td>Идва в:</td>
+           </tr>
+           {% for coming_lines in busdata['lines'] %}
+           <tr>
+            <td>{{ coming_lines.name }}</td>
+          <td>
+            <ul>
+              {% for time in coming_lines['arrivals'] %}
+                <li>
+                  {{ time.time }}
+                </li>
+                {% endfor %}
+            </ul>
+         </td>
+           </tr>
+           {% endfor %}
+        </table>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+      <!-- Header -->
+{% block title %}  {% endblock %}
+
+{% block header %} {% endblock %}
+  <!-- Add-Stopids -->
+{% block add_stopids %}
+
+     <div class="col s12 add-ids">
+
+
+        <h4 class="col s4"> User: {{user_name}} </h4>
+
+        <div class="col s4">
+          <form action="/addfav" method="POST">
+          <input name="userFav_Stop_id" placeholder="код на спирка" id="userFav">
+          <button type="submit" onclick="submit()" class="waves-effect waves-light btn" value="Remove">добави</button>
+        </form>
+        </div>
+
+        <div class="col s4 favsbox">
+        <form name="remfav" action="/remfav" method="POST">
+            {% for stop in stops %}
+           <label>
+              <input name="{{stop['name']}}" id="indeterminate-checkbox" type="checkbox" />
+              <span>{{stop['value']}}</span>
+            </label>
+            {% endfor %}
+            <button type="submit" onclick="remfav()" class="waves-effect waves-light btn" value="Remove">махни</button>
+          </form>
+
+        </div>
+
+     </div>
+
+
+{% endblock %}
